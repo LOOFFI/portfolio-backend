@@ -62,7 +62,7 @@ const index = require('./routes/index');
 const auth = require('./routes/auth');
 const contactRoutes = require("./routes/contact.js");
 app.use('/api', index);
-app.use('/', auth);
+app.use('/api', auth);
 app.use('/api', contactRoutes);
 
 

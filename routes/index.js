@@ -12,6 +12,13 @@ router.get('/projects', (req,res,next) => {
     .catch(err => next(err));
 })
 
+router.get('/projects/:id', (req,res,next) => {
+  const {id} = req.params;
+  Projects.findById(id)
+    .then(projResult => res.json(projResult))
+    .catch(err => next(err));
+  })
+
 router.post('/projects', (req,res,next) => {
   const {title, description, link, img } = req.body;
   Projects.create({title, description, link, img })

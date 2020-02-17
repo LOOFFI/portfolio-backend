@@ -4,7 +4,7 @@ const PLM = require('passport-local-mongoose');
 const userSchema = new Schema(
   {
     email: String,
-    name: String
+    encryptedPassword: { type: String, required: true }
   },
   {
     timestamps: true,
@@ -12,6 +12,6 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.plugin(PLM, { usernameField: 'email' });
+userSchema.plugin(PLM, { usernameField: 'email', passwordField: 'encryptedPassword' });
 
 module.exports = model('User', userSchema);

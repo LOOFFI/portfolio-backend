@@ -1,5 +1,6 @@
 const User = require('../models/User');
-const passport = require('passport');
+const passport = require('passport')
+
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
