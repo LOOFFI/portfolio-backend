@@ -12,7 +12,7 @@ const cors = require('cors');
 const passport = require('./config/passport');
 
 mongoose
-  .connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((x) => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
   .catch((err) => console.error('Error connecting to mongo', err));
 
@@ -22,16 +22,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 
-// app.use(
-  //   session({
-    //     resave: false,
-    //     saveUninitialized: true,
-    //     secret: process.env.SECRET,
-    //     cookie: { maxAge: 1000 * 60 * 60 }
-    //   })
-    // );
-    
-    
+
     app.use(passport.initialize());
     app.use(passport.session());
     
@@ -67,7 +58,7 @@ app.use('/api', contactRoutes);
 
 
 // Uncomment this line for production
-// app.get('/*', (req, res) => res.sendFile(__dirname + '/public/index.html'));
+app.get('/*', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 
 module.exports = app;
 
