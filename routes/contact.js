@@ -18,8 +18,7 @@ const oauth2Client = new OAuth2(
 );
 
 oauth2Client.setCredentials({
-  refresh_token: '1//04NFeb4x0Y4xUCgYIARAAGAQSNwF-L9IrMFd0XEkub2DRAx4F-TnnHSMfv--DSppSwvzGXb4r5N18t92ThxtfXMQFF8f2URmb0CI'
-  //process.env.REFRESH_TOKEN
+  refresh_token: process.env.REFRESH_TOKEN
 });
 
 const accessToken = oauth2Client.getAccessToken()
@@ -49,8 +48,7 @@ contactRoutes.post('/contact', (req,res,next) => {
         user: process.env.GMAIL_USER,
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: '1//04NFeb4x0Y4xUCgYIARAAGAQSNwF-L9IrMFd0XEkub2DRAx4F-TnnHSMfv--DSppSwvzGXb4r5N18t92ThxtfXMQFF8f2URmb0CI',
-        // process.env.REFRESH_TOKEN,
+        refreshToken: process.env.REFRESH_TOKEN,
         accessToken: accessToken,
         
     }
