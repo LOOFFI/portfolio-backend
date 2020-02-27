@@ -63,10 +63,7 @@ contactRoutes.post('/contact', (req,res,next) => {
     text: "FROM " + req.body.email + " message " + req.body.message,
     html: '<p>FROM : '+ req.body.email + "<br><b>MESSAGE :</b><br> " + req.body.message + '</p>'
   };
-  
-  // console.log(verificationUrl);
-  // console.log(accessToken);
-  // console.log("MAILOPTIONS",mailOptions)
+
   
   request(verificationUrl,function(error,response,body) {
     body = JSON.parse(body);
