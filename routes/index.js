@@ -20,8 +20,8 @@ router.get('/projects/:id', (req,res,next) => {
   })
 
 router.post('/projects', (req,res,next) => {
-  const {title, description, link, img } = req.body;
-  Projects.create({title, description, link, img })
+  const {title, description, link, img, img_large} = req.body;
+  Projects.create({title, description, link, img, img_large })
     .then(projectDoc => res.json(projectDoc))
     .catch(err => {
       console.log('there is an error in projects post req');

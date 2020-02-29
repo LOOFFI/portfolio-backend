@@ -8,7 +8,8 @@ const projectSchema = new Schema ({
   title : {type: String, required: true},
   description : {type: String, required: true},
   link : {type: String, required: true},
-  img : {type: String, required: true}
+  img : {type: String, required: true},
+  img_large : {type: String, required: true}
 
 },{
   timestamps : true
