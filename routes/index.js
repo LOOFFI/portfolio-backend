@@ -29,5 +29,13 @@ router.post('/projects', (req,res,next) => {
     })
 })
 
+router.post('/projects/:id', (req,res,next) => {
+  const {id} = req.params;
+  const {title, description, link, img, img_large} = req.body;
+  Projects.findByIdAndUpdate(id, {title, description, link, img, img_large})
+    .then(projResult => res.json(projResult))
+    .catch(err=> console.log('UPDATING ERROR', err))
+})
+
 
 module.exports = router;
